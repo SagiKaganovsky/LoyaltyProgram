@@ -1,4 +1,4 @@
-﻿namespace LoyaltyProgram
+﻿namespace LoyaltyProgram.Models
 {
     public class LoyaltyProgramSettings
     {

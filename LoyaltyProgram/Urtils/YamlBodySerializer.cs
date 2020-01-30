@@ -6,7 +6,7 @@ using Nancy.Responses.Negotiation;
 using YamlDotNet.Serialization;
 
 
-namespace LoyaltyProgram
+namespace LoyaltyProgram.Utils
 {
     public class YamlBodySerializer : IResponseProcessor
     {

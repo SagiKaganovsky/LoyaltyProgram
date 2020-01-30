@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using LoyaltyProgram.Models;
+using Nancy;
 using Nancy.ModelBinding;
 using System;
 using System.Collections.Generic;

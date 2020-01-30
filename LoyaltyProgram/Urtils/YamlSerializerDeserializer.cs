@@ -3,10 +3,8 @@ using Nancy.ModelBinding;
 using Nancy.Responses.Negotiation;
 using YamlDotNet.Serialization;
 
-
-namespace LoyaltyProgram
+namespace LoyaltyProgram.Utils
 {
-
     public class YamlBodyDeserializer : IBodyDeserializer
     {
         public bool CanDeserialize(MediaRange mediaRange, BindingContext context) => mediaRange.Subtype.ToString().EndsWith("yaml");
