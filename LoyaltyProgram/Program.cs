@@ -22,6 +22,7 @@ namespace LoyaltyProgram
             .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseKestrel();
+                    webBuilder.UseIIS();
                     webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
                     webBuilder.UseIISIntegration();
                     webBuilder.UseStartup<Startup>();
