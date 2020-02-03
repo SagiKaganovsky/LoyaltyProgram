@@ -42,7 +42,7 @@ namespace LoyaltyProgram
 
             app.UseOwin(buildFunc =>
             {
-              //  buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
+                //  buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
                 buildFunc.UseNancy(opt => opt.Bootstrapper = new Bootstrapper());
             });
         }

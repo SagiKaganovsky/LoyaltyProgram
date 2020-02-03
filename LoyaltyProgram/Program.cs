@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
+using Serilog.Formatting.Compact;
 
 namespace LoyaltyProgram
 {
@@ -26,9 +27,9 @@ namespace LoyaltyProgram
                   .ReadFrom.Configuration(Configuration)
                   .Enrich.FromLogContext()
                   .WriteTo.Debug()
-                  .WriteTo.Console(
-                      outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
-                  .CreateLogger();
+                  .WriteTo.Console(new CompactJsonFormatter()).CreateLogger();
+            // outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
+
             try
             {
                 Log.Information("Getting the motors running...");
