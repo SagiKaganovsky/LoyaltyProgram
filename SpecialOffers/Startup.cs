@@ -9,9 +9,8 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nancy.Owin;
-using Serilog;
 
-namespace LoyaltyProgram
+namespace SpecialOffers
 {
     public class Startup
     {
@@ -38,12 +37,9 @@ namespace LoyaltyProgram
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSerilogRequestLogging();
-
             app.UseOwin(buildFunc =>
             {
-              //  buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
-                buildFunc.UseNancy(opt => opt.Bootstrapper = new Bootstrapper());
+                buildFunc.UseNancy();
             });
         }
     }
