@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
+using Serilog.Sinks.SystemConsole.Themes;
 
 namespace LoyaltyProgram
 {
@@ -27,7 +28,9 @@ namespace LoyaltyProgram
                   .ReadFrom.Configuration(Configuration)
                   .Enrich.FromLogContext()
                   .WriteTo.Debug()
-                  .WriteTo.Console(new CompactJsonFormatter()).CreateLogger();
+                  .WriteTo.Console(theme: AnsiConsoleTheme.Code).CreateLogger();
+            // theme: AnsiConsoleTheme.Code
+            // new RenderedCompactJsonFormatter()
             // outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
 
             try
