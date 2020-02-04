@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nancy.Owin;
@@ -19,15 +20,17 @@ namespace LoyaltyProgram
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes
 
-            services.Configure<IISServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            //services.Configure<KestrelServerOptions>(options =>
+            //{
+            //    options.AllowSynchronousIO = true;
+            //});
+
+            //services.Configure<IISServerOptions>(options =>
+            //{
+            //    options.AllowSynchronousIO = true;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,11 +41,11 @@ namespace LoyaltyProgram
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSerilogRequestLogging();
+           // app.UseSerilogRequestLogging();
 
             app.UseOwin(buildFunc =>
             {
-                //  buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
+                //buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
                 buildFunc.UseNancy(opt => opt.Bootstrapper = new Bootstrapper());
             });
         }
