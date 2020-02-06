@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Nancy.Owin;
 using Serilog;
 
+//  https://andrewlock.net/exploring-the-new-project-file-program-and-the-generic-host-in-asp-net-core-3/
+
 namespace LoyaltyProgram
 {
     public class Startup
@@ -46,7 +48,7 @@ namespace LoyaltyProgram
 
             app.UseOwin(buildFunc =>
             {
-                //buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
+                buildFunc(next => env => { Console.WriteLine($" Request {env["owin.RequestPath"]} {env["owin.RequestMethod"]} "); return next(env); });
                 buildFunc.UseNancy(opt => opt.Bootstrapper = new Bootstrapper());
             });
         }
