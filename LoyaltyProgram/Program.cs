@@ -51,8 +51,12 @@ namespace LoyaltyProgram
 
         }
 
+        //  The Generic Host was introduced in 2.1, and was a nice idea, but I found various issues with it, 
+        //  primarily as it created more work for libraries.Thankfully this change in 3.0 should solve those issues.
         // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.1
         // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-3.1
+
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>

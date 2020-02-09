@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LoyaltyProgram
+namespace LoyaltyProgram.Modules
 {
     public class UsersModule : NancyModule
     {
